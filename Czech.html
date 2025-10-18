@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English-Czech Quiz</title>
+    <link rel="stylesheet" href="Czech.css">
+</head>
+<body>
+    <!-- Back to Menu Button -->
+    <button class="back-btn" onclick="window.location.href='Main.html'">← Menu</button>
+
+    <div class="quiz-container">
+        <!-- Czech flag and CZ label -->
+        <div class="header">
+            <img src="https://cdn-icons-png.flaticon.com/128/330/330536.png" alt="Czech Flag" class="flag">
+            <span class="country-label">Czech</span>
+        </div>
+
+        <h1 id="english-word">Word</h1>
+
+        <div class="buttons">
+            <button class="option-btn" onclick="checkAnswer(0)">Option 1</button>
+            <button class="option-btn" onclick="checkAnswer(1)">Option 2</button>
+            <button class="option-btn" onclick="checkAnswer(2)">Option 3</button>
+            <button class="option-btn" onclick="checkAnswer(3)">Option 4</button>
+        </div>
+
+        <div id="feedback">
+            <img id="feedback-img" src="" alt="" />
+        </div>
+
+        <div id="explanation">
+            <p id="explanation-text"></p>
+        </div>
+    </div>
+
+    <audio id="correct-sound">
+        <source src="correct.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="wrong-sound">
+        <source src="wrong.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="Czech.js"></script>
+</body>
+</html>

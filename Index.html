@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Test</title>
+  <link rel="stylesheet" href="Index.css">
+</head>
+<body>
+
+<!-- Splash screen -->
+<div id="splash">
+  <img src="https://cdn-icons-png.flaticon.com/128/17621/17621148.png" alt="Splash Image">
+</div>
+
+<!-- Page content -->
+<div id="content">
+  <h1>Welcome to Word practice</h1>
+  <button onclick="window.location.href='Main.html'">Play</button>
+  <button>Settings</button>
+</div>
+
+<script>
+  // Hide splash screen after 5 seconds and show content
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const splash = document.getElementById('splash');
+      const content = document.getElementById('content');
+      splash.classList.add('hidden');   // fade out splash
+      content.classList.add('visible'); // fade in main content
+    }, 5000); // 5 seconds
+  });
+</script>
+
+</body>
+</html>

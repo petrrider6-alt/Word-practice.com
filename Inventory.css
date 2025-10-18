@@ -1,0 +1,129 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body and background */
+body {
+  background: linear-gradient(to right, blue, purple);
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top section */
+.top-section {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  flex-shrink: 0;
+}
+
+.top-section h1 {
+  font-family: sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: white;
+  -webkit-text-stroke: 2px black;
+}
+
+/* Scrollable list */
+.scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 0 6rem 0; /* leave space for bottom bar */
+}
+
+/* Vertical button list */
+.language-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Button styling */
+.language-buttons button {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #333;
+  background: linear-gradient(to right, white, darkgray, gray);
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.2s, background 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  max-width: 400px;
+}
+
+.language-buttons button:hover {
+  transform: scale(1.05);
+}
+
+.language-buttons .flag {
+  width: 24px;
+  height: auto;
+}
+
+/* Bottom navigation bar */
+.bottom-nav {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-around;
+  padding: 0.8rem 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* Nav items */
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.nav-item img {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.4rem;
+  filter: brightness(0) invert(1);
+  transition: filter 0.2s;
+}
+
+.nav-item:hover {
+  transform: translateY(-5px);
+  color: #ffd700;
+}
+
+.nav-item:hover img {
+  filter: brightness(0) invert(0.8) sepia(1) hue-rotate(40deg);
+}
+
+/* Scrollbar styling */
+.scroll-area::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scroll-area::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}

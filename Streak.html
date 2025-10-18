@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Daily Streak</title>
+  <link rel="stylesheet" href="streak.css" />
+</head>
+<body>
+
+  <!-- Streak Section -->
+  <div class="streak-container">
+    <img src="https://cdn-icons-png.flaticon.com/128/10760/10760625.png" alt="Fire" class="streak-icon">
+    <span class="streak-count" id="streakCount">0</span>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <div class="bottom-nav">
+    <a href="Main.html" class="nav-item">
+      <img src="https://cdn-icons-png.flaticon.com/128/25/25694.png" alt="Home">
+      Home
+    </a>
+    <a href="inventory.html" class="nav-item">
+      <img src="https://cdn-icons-png.flaticon.com/128/4300/4300535.png" alt="Index">
+      Index
+    </a>
+    <a href="streak.html" class="nav-item">
+      <img src="https://cdn-icons-png.flaticon.com/128/10760/10760625.png" alt="Streaks">
+      Streaks
+    </a>
+    <a href="#" class="nav-item">
+      <img src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png" alt="Profile">
+      Profile
+    </a>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Setup streak logic
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    let streakData = JSON.parse(localStorage.getItem("streakData")) || {
+      count: 0,
+      lastVisit: null
+    };
+
+    const lastVisit = streakData.lastVisit ? new Date(streakData.lastVisit) : null;
+
+    if (!lastVisit || today - lastVisit >= 86400000) {
+      if (lastVisit && (today - lastVisit) / 86400000 > 1) {
+        streakData.count = 1;
+      } else {
+        streakData.count += 1;
+      }
+
+      streakData.lastVisit = today.toISOString();
+      localStorage.setItem("streakData", JSON.stringify(streakData));
+    }
+
+    document.getElementById("streakCount").textContent = streakData.count;
+  </script>
+
+</body>
+</html>

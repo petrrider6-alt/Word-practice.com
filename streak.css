@@ -1,0 +1,109 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(to right, blue, purple);
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  overflow: hidden;
+}
+
+/* Center streak display */
+.streak-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 25px 50px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+  animation: pulse 2s infinite alternate;
+}
+
+/* Fire icon with glowing animation */
+.streak-icon {
+  width: 90px;
+  height: 90px;
+  filter: drop-shadow(0 0 15px orange);
+  animation: flicker 1s infinite;
+}
+
+/* Counter */
+.streak-count {
+  font-size: 3.5rem;
+  font-weight: bold;
+  text-shadow: 0 0 10px orange, 0 0 20px red;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Flickering flame effect */
+@keyframes flicker {
+  0%, 100% { filter: drop-shadow(0 0 10px orange) brightness(1); }
+  50% { filter: drop-shadow(0 0 20px yellow) brightness(1.3); }
+}
+
+/* Number glow effect */
+@keyframes glow {
+  0% { text-shadow: 0 0 5px orange, 0 0 10px red; }
+  100% { text-shadow: 0 0 20px yellow, 0 0 30px orange; }
+}
+
+/* Gentle pulsing of container */
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.03); }
+}
+
+/* Bottom navigation bar */
+.bottom-nav {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.nav-item img {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.4rem;
+  filter: brightness(0) invert(1);
+  transition: filter 0.2s;
+}
+
+.nav-item:hover {
+  transform: translateY(-5px);
+  color: #ffd700;
+}
+
+.nav-item:hover img {
+  filter: brightness(0) invert(0.8) sepia(1) hue-rotate(40deg);
+}
